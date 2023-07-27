@@ -3,6 +3,7 @@ import express from 'express'
 import exphbs from 'express-handlebars'
 import session from 'express-session'
 import methodOverride from 'method-override'
+import { router as routes } from './routes/index.js'
 
 if (process.env.NODE_ENV !== 'production') {
     dotenv.config()
@@ -20,10 +21,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
-
-app.get('/', (req, res) => {
-    res.send('HI')
-})
+app.use(routes)
 
 app.listen(port, () => {
     console.log(`App is running on http://localhost:${port}`)
