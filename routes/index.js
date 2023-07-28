@@ -1,9 +1,10 @@
-import express from 'express'
-import { home } from './modules/home.js'
-import { users } from './modules/users.js'
+const express = require('express')
 const router = express.Router()
+
+const home = require('./modules/home')
+const users = require('./modules/users')
 
 router.use('/users', users)
 router.use('/', home)
 
-export { router }
+module.exports = router

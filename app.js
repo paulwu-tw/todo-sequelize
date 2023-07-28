@@ -1,12 +1,11 @@
-import dotenv from 'dotenv'
-import express from 'express'
-import exphbs from 'express-handlebars'
-import session from 'express-session'
-import methodOverride from 'method-override'
-import { router as routes } from './routes/index.js'
+const express = require('express')
+const exphbs = require('express-handlebars')
+const session = require('express-session')
+const methodOverride = require('method-override')
+const routes = require('./routes')
 
 if (process.env.NODE_ENV !== 'production') {
-    dotenv.config()
+    require('dotenv').config()
 }
 
 const app = express()
